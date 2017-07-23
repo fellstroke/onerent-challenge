@@ -7,9 +7,16 @@ import HomesList from '../adumb-comp'
 import { fetchListData } from '../actions'
 
 const mapStateToProps = (state) => {
+  const { items, isFetching } = state.homesListData
+  // const { activeFilters }
+
+  // const filteredData = items.filter((item) => {
+  //   return // Return filtered array of objects based on active filters
+  // })
+
   return {
-    items: state.homesListData.items,
-    isFetching: state.homesListData.isFetching
+    items: items,
+    isFetching: isFetching
   }
 }
 

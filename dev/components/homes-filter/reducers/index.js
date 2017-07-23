@@ -12,11 +12,10 @@ export default function buttonData(state = buttonDataInitState, action) {
     case SET_BUTTON_ACTIVE:
       return {
         ...state,
-        id: action.id,
         buttons: {
           ...state.buttons,
-          [action.id]: {
-            ...state.buttons[action.id],
+          [action.index]: {
+            ...state.buttons[action.index],
             isButtonActive: true
           }
         }
@@ -25,11 +24,10 @@ export default function buttonData(state = buttonDataInitState, action) {
     case SET_BUTTON_INACTIVE:
       return {
         ...state,
-        id: action.id,
         buttons: {
           ...state.buttons,
-          [action.id]: {
-            ...state.buttons[action.id],
+          [action.index]: {
+            ...state.buttons[action.index],
             isButtonActive: false
           }
         }

@@ -5,23 +5,25 @@ import { Sdiv, CheckButton, HfCard} from '../../main-styles'
 export default class HomesFilter extends Component {
 
   render() {
+    const { isPetButtonActive, isParkingButtonActive, setButtonActive, setButtonInactive } = this.props
+
+    const makeButton = (index, id, buttonActiveCheck) => {
+      return (
+        <CheckButton 
+          onClick={
+            (buttonActiveCheck)
+              ? () => this.props.setButtonInactive(index, id)
+              : () => this.props.setButtonActive(index, id)
+          }
+        ><label>{id}</label></CheckButton>
+      )
+    }
+
     return (
       <HfCard>
         <Sdiv>
-          <CheckButton 
-            onClick={
-              (this.props.isPetButtonActive)
-                ? () => this.props.setButtonInactive(0)
-                : () => this.props.setButtonActive(0)
-            }
-          ><label>Pets</label></CheckButton>
-          <CheckButton 
-            onClick={
-              (this.props.isParkingButtonActive)
-                ? () => this.props.setButtonInactive(1)
-                : () => this.props.setButtonActive(1)
-            }
-          ><label>Parking Lots</label></CheckButton>
+          {makeButton(0, 'pets', isPetButtonActive)}
+          {makeButton(1, 'parking', isParkingButtonActive)}
         </Sdiv>
       </HfCard>
     )

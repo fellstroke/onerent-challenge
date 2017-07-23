@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import HomesFilter from '../adumb-comp'
 
-import { setButtonActive, setButtonInactive } from '../actions'
+import { setButtonActive, setButtonInactive, collectFilter, removeFilter } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -16,11 +16,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
-    setButtonActive: (id) => {
-      dispatch(setButtonActive(id))
+    setButtonActive: (index, id) => {
+      dispatch(setButtonActive(index))
+      dispatch(collectFilter(index, id))
     },
-    setButtonInactive: (id) => {
-      dispatch(setButtonInactive(id))
+    setButtonInactive: (index, id) => {
+      dispatch(setButtonInactive(index))
+      dispatch(removeFilter(index, id))
     }
   }
 }

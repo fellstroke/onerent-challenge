@@ -1,26 +1,36 @@
 import {
   SET_BUTTON_ACTIVE,
   SET_BUTTON_INACTIVE,
-  COLLECT_FILTER
+  COLLECT_FILTER,
+  REMOVE_FILTER
 } from './action-const' 
 
-export const setButtonActive = (id) => {
+export const setButtonActive = (index) => {
   return {
     type: SET_BUTTON_ACTIVE,
-    id
+    index
   }
 }
 
-export const setButtonInactive = (id) => {
+export const setButtonInactive = (index) => {
   return {
     type: SET_BUTTON_INACTIVE,
+    index
+  }
+}
+
+export const collectFilter = (index, id) => {
+  return {
+    type: COLLECT_FILTER,
+    index,
     id
   }
 }
 
-export const collectFilter = (filter) => {
+export const removeFilter = (index, id) => {
   return {
-    type: COLLECT_FILTER,
-    filter
+    type: REMOVE_FILTER,
+    index,
+    id
   }
 }
