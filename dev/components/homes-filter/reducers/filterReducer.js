@@ -1,7 +1,6 @@
 import {
   COLLECT_FILTER,
   REMOVE_FILTER,
-  USE_FILTER
 } from '../action-const' 
 
 const filterDataInitState = []
@@ -12,7 +11,7 @@ export default function filterData(state = filterDataInitState, action) {
     case COLLECT_FILTER:
       return [
         ...state.slice(0, action.index),
-        action.id,
+        action.name,
         ...state.slice(action.index)
       ]
     

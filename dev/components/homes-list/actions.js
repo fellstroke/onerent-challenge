@@ -4,33 +4,33 @@ import {
   ERR_LIST_DATA
  } from './action-const'
 
-let requestListData = () => {
+const requestListData = () => {
   return {
     type: REQUEST_LIST_DATA
   }
 }
 
-let recieveListData = (listData) => {
+const recieveListData = (items) => {
   return {
     type: RECEIVE_LIST_DATA,
-    listData
+    items
   }
 }
 
-let errListData = (err) => {
+const errListData = (err) => {
   return {
     type: ERR_LIST_DATA,
     err
   }
 }
 
-let fetchAPI = () => {
+const fetchAPI = () => {
   const URL = 'http://www.onerent.co/api/Property/availableProperties'
   return fetch(URL,{method: 'POST'})
     .then(response => Promise.all([response, response.json()]))
 }
 
-export let fetchListData = (params) => {
+export const fetchListData = (params) => {
   return (dispatch) => {
     dispatch(requestListData())
     return fetchAPI()

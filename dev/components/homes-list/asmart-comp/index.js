@@ -8,15 +8,30 @@ import { fetchListData } from '../actions'
 
 const mapStateToProps = (state) => {
   const { items, isFetching } = state.homesListData
-  // const { activeFilters }
+  const { filterData } = state
 
-  // const filteredData = items.filter((item) => {
-  //   return // Return filtered array of objects based on active filters
-  // })
+  let filteredData = items
+  
+  if (filterData.includes('petsAllowed')) {
+    filteredData = filteredData.filter((item) => {
+      return item['petsAllowed'] === true
+    })
+    console.log(`CHAD, petsAllowed`)
+  }
+
+  if (filterData.includes('numberOfParkingSpots')) {
+    filteredData = filteredData.filter((item) => {
+      return item['numberOfParkingSpots'] !== null
+    })
+    console.log(`CHAD, parking`)
+  }
+
+  console.log(`CHAD, results ===>>> ${filteredData}`)
 
   return {
-    items: items,
-    isFetching: isFetching
+    filteredData,
+    items,
+    isFetching,
   }
 }
 

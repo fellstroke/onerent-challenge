@@ -1,32 +1,58 @@
 import React, { Component } from 'react'
 
-import { Sdiv, CheckButton, HfCard} from '../../main-styles'
+import Button from './button'
+import DropDownButton from './dropDownButton'
+import { HlLi, Sdiv, CheckButton, HfCard, HlDropDown } from '../../main-styles'
 
 export default class HomesFilter extends Component {
 
   render() {
-    const { isPetButtonActive, isParkingButtonActive, setButtonActive, setButtonInactive } = this.props
-
-    const makeButton = (index, id, buttonActiveCheck) => {
-      return (
-        <CheckButton 
-          onClick={
-            (buttonActiveCheck)
-              ? () => this.props.setButtonInactive(index, id)
-              : () => this.props.setButtonActive(index, id)
-          }
-        ><label>{id}</label></CheckButton>
-      )
-    }
+    const {
+      isPetButtonActive,
+      setButtonActive,
+      setButtonInactive,
+    } = this.props
 
     return (
       <HfCard>
         <Sdiv>
-          {makeButton(0, 'pets', isPetButtonActive)}
-          {makeButton(1, 'parking', isParkingButtonActive)}
+          <Button
+            setButtonActive={setButtonActive}
+            setButtonInactive={setButtonInactive}
+            index={0}
+            name={'petsAllowed'}
+            buttonActiveCheck={isPetButtonActive}
+          ></Button>
         </Sdiv>
       </HfCard>
     )
   }
 }
 
+/*Active button must be a different color
+
+Time to put the drop down animation. 
+Requirements:
+1.) When button is clicked, display dropdown
+2.) When new button is clicked, minimize dropdown of previous button, the  dispaly new drop down
+*/
+
+// const makeButton = (index, name, buttonActiveCheck, innerMenu) => {
+//   return (
+//     <CheckButton 
+//       active={ buttonActiveCheck ? true : false }
+//       onClic ={
+//         (buttonActiveCheck)
+//           ? () => this.props.setButtonInactive(index, name)
+//           : () => this.props.setButtonActive(index, name)
+//       }
+//     >
+//       <h2>{name}</h2>
+//       <HlDropDown active = { buttonActiveCheck ? true : false }>
+//         <HlLi>Hello</HlLi>
+//         <HlLi>Hello</HlLi>
+//         <HlLi>Hello</HlLi>
+//       </HlDropDown>
+//     </CheckButton>
+//   )
+// }

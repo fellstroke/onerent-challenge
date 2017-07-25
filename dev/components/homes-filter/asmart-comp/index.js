@@ -4,27 +4,68 @@ import { connect } from 'react-redux'
 
 import HomesFilter from '../adumb-comp'
 
-import { setButtonActive, setButtonInactive, collectFilter, removeFilter } from '../actions'
+import {
+  setButtonActive,
+  setButtonInactive,
+  collectFilter,
+  removeFilter,
+  applyFilter
+} from '../actions' 
 
 const mapStateToProps = (state) => {
+  const { buttons } = state.buttonData
+  const { filterData } = state
+  
+  let isAppButtonActive = false
+  if (
+    filterData.includes('Refrigerator') ||
+    filterData.includes('Freezer') ||
+    filterData.includes('Oven/Range') ||
+    filterData.includes('Dishwasher') ||
+    filterData.includes('Garbage') ||
+    filterData.includes('Disposal') ||
+    filterData.includes('Microwave') ||
+    filterData.includes('Stainless Steel Appliances') ||
+    filterData.includes('Washer/Dryer') 
+  ) {
+    let isAppButtonActive = true
+  }
+
+  let isInFeatButtonActive = false
+  if (
+    filterData.includes('Hardwood Floors') ||
+    filterData.includes('Granite Counters') ||
+    filterData.includes('High/Vaulted Ceilings') ||
+    filterData.includes('Stainless Steel Appliances')
+  ) {
+    let isInFeatButtonActive = true
+  }
+
   return {
-    isPetButtonActive: state.buttonData.buttons[0].isButtonActive,
-    isParkingButtonActive: state.buttonData.buttons[1].isButtonActive
+    isAppButtonActive: isAppButtonActive,
+    isInFeatButtonActive: isInFeatButtonActive,
+    isPetButtonActive: buttons[0].isButtonActive
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
-    setButtonActive: (index, id) => {
+    setButtonActive: (index, name) => {
       dispatch(setButtonActive(index))
-      dispatch(collectFilter(index, id))
+      dispatch(collectFilter(index, name))
     },
-    setButtonInactive: (index, id) => {
+    setButtonInactive: (index, name) => {
       dispatch(setButtonInactive(index))
-      dispatch(removeFilter(index, id))
+      dispatch(removeFilter(index, name))
+    },
+    setDropDownActive: () => {
+      dispatch(setButtonActive(index))
+    },
+    setDropDownInactive: () => {
+      dispatch(setButtonInactive(index))
     }
-  }
+  } 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomesFilter)

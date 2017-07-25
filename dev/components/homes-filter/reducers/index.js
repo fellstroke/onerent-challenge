@@ -2,8 +2,9 @@ import { SET_BUTTON_ACTIVE, SET_BUTTON_INACTIVE } from '../action-const'
 
 const buttonDataInitState = {
   buttons: [
-    {id: 'Pets', isButtonActive: false},
-    {id: 'Parking',isButtonActive: false}
+    {name: 'petsAllowed', isButtonActive: false},
+    {name: 'appliances', isButtonActive: false},
+    {name: 'interiorFeatures', isButtonActive: false},
   ]
 }
 

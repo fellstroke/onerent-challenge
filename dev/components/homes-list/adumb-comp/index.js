@@ -5,10 +5,14 @@ import { Sli, HlCard, Hlp} from '../../main-styles'
 export default class HomesList extends Component {
 
   componentDidMount() {
-    this.props.fetchListData()
+    const { fetchListData } = this.props // DISPATCH
+    
+    fetchListData()
   }
 
   render() {
+    const { items, isFetching, filteredData } = this.props // STATE
+
     const CreateItem = (items) => {
       return items.map((item) => {
         return (
@@ -17,11 +21,19 @@ export default class HomesList extends Component {
       })
     }
 
+    const Test = (filteredData) => {
+      return filteredData.map((filteredDatum) => {
+        return (
+          <Sli key={filteredDatum.id}><Hlp>{filteredDatum.address}</Hlp> <Hlp float='right'>${filteredDatum.targetRent}</Hlp></Sli>
+        )
+      })
+    }
+
     return (
       <HlCard>
-        {this.props.isFetching
+        {isFetching
           ? <Sli>Loading...</Sli>
-          : CreateItem(this.props.items)
+          : Test(filteredData) // CreateItem(items) //
         }
       </HlCard>
     )

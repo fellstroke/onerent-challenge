@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import homesListData from './homes-list/reducer'
+import homesListData from './homes-list/reducers'
 import buttonData from './homes-filter/reducers'
 import filterData from './homes-filter/reducers/filterReducer'
 

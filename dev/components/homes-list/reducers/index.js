@@ -2,14 +2,15 @@ import {
   ERR_LIST_DATA,
   REQUEST_LIST_DATA,
   RECEIVE_LIST_DATA,
-} from './action-const'
+} from '../action-const'
 
 
 const homesListDataInitState = {
   isFetching: false,
   isErr: false,
   errMsg: null,
-  items: [] 
+  items: [],
+  
 }
 
 export default function homesListData(state = homesListDataInitState, action) {
@@ -33,7 +34,7 @@ export default function homesListData(state = homesListDataInitState, action) {
         ...state,
         isFetching: false,
         isErr: false,
-        items: action.listData
+        items: action.items,
       }
 
     default:
