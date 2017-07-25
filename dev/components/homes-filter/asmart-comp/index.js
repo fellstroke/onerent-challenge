@@ -42,9 +42,11 @@ const mapStateToProps = (state) => {
   }
 
   return {
+    isAppDDActive: buttons[1].isButtonActive,
     isAppButtonActive: isAppButtonActive,
+    isInFeatDDActive: buttons[2].isButtonActive,
     isInFeatButtonActive: isInFeatButtonActive,
-    isPetButtonActive: buttons[0].isButtonActive
+    isPetButtonActive: buttons[0].isButtonActive,
   }
 }
 

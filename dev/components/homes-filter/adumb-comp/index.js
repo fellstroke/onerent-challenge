@@ -8,9 +8,18 @@ export default class HomesFilter extends Component {
 
   render() {
     const {
-      isPetButtonActive,
       setButtonActive,
       setButtonInactive,
+      setDropDownActive,
+      setDropDownInactive
+    } = this.props
+
+    const {
+      isAppDDActive,
+      isAppButtonActive,
+      isInFeatDDActive,
+      isInFeatButtonActive,
+      isPetButtonActive,
     } = this.props
 
     return (
@@ -23,6 +32,26 @@ export default class HomesFilter extends Component {
             name={'petsAllowed'}
             buttonActiveCheck={isPetButtonActive}
           ></Button>
+
+          <DropDownButton
+            setDropDownActive={setDropDownActive}
+            setDropDownInactive={setDropDownInactive}
+            index={1}
+            name={'appliances'}
+            dropDownActiveCheck={isAppDDActive}
+            buttonActiveCheck={isAppButtonActive}
+          >
+          </DropDownButton>
+
+          <DropDownButton
+            setDropDownActive={setDropDownActive}
+            setDropDownInactive={setDropDownInactive}
+            index={2}
+            name={'interiorFeatures'}
+            dropDownActiveCheck={isInFeatDDActive}
+            buttonActiveCheck={isInFeatButtonActive}
+          >
+          </DropDownButton>
         </Sdiv>
       </HfCard>
     )
