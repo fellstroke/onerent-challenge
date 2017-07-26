@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { HlLi, Sdiv, CheckButton, HfCard, HlDropDown } from '../../main-styles'
 
-export default class dropDownButton extends Component {
+export default class DropDownButton extends Component {
   render() {
     const {
       setDropDownActive,
@@ -14,6 +14,7 @@ export default class dropDownButton extends Component {
       name,
       dropDownActiveCheck,
       buttonActiveCheck,
+      items,
       children
     } = this.props
 
@@ -22,11 +23,21 @@ export default class dropDownButton extends Component {
         active = { buttonActiveCheck ? true : false }
         onClick = {
           (dropDownActiveCheck)
-            ? () => this.props.setDropDownActive(index)
-            : () => this.props.setDropDownInactive(index)
+            ? () => this.props.setDropDownInactive(index)
+            : () => this.props.setDropDownActive(index)
         }
       >
         <h2>{name}</h2>
+        <HlDropDown active = { dropDownActiveCheck ? true : false }>
+          {
+            items.map((item) => {
+              return <HlLi key={item}>{item}</HlLi>
+            })
+          }
+          {/* <HlLi>Hello</HlLi>
+          <HlLi>Hello</HlLi>
+          <HlLi>Hello</HlLi> */}
+        </HlDropDown>
       </CheckButton>
     )
   }

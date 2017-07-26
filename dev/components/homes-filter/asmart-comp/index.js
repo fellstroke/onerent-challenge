@@ -61,10 +61,10 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setButtonInactive(index))
       dispatch(removeFilter(index, name))
     },
-    setDropDownActive: () => {
+    setDropDownActive: (index) => {
       dispatch(setButtonActive(index))
     },
-    setDropDownInactive: () => {
+    setDropDownInactive: (index) => {
       dispatch(setButtonInactive(index))
     }
   } 

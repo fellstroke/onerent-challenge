@@ -13,6 +13,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.10.4",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.9.1",
@@ -40,6 +41,7 @@
     "webpack-hot-middleware": "^2.11.0"
   },
   "dependencies": {
+    "es6-promise": "^4.1.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "styled-components": "^2.1.1"

@@ -1,3 +1,6 @@
+import { polyfill } from 'es6-promise'
+import fetch from 'isomorphic-fetch';
+
 import { 
   REQUEST_LIST_DATA, 
   RECEIVE_LIST_DATA,
@@ -39,9 +42,9 @@ export const fetchListData = (params) => {
       })
       .catch(error => {
         if (error) {
-          dispatch(fetchOrdersFailure('Fetching orders failed.'))
+          dispatch(errListData('Fetching orders failed.'))
         }
-        dispatch(fetchOrdersFailure(error))
+        dispatch(errListData(error))
       })
   }
 }

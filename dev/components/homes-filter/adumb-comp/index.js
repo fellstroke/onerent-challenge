@@ -40,6 +40,9 @@ export default class HomesFilter extends Component {
             name={'appliances'}
             dropDownActiveCheck={isAppDDActive}
             buttonActiveCheck={isAppButtonActive}
+            items={['Refrigerator', 'Freezer', 'Oven/Range',
+            'Dishwasher', 'Garbage', 'Disposal',
+            'Microwave', 'Stainless Steel Appliances', 'Washer/Dryer']}
           >
           </DropDownButton>
 
@@ -50,6 +53,9 @@ export default class HomesFilter extends Component {
             name={'interiorFeatures'}
             dropDownActiveCheck={isInFeatDDActive}
             buttonActiveCheck={isInFeatButtonActive}
+            items={['Refrigerator', 'Freezer', 'Oven/Range',
+            'Dishwasher', 'Garbage', 'Disposal',
+            'Microwave', 'Stainless Steel Appliances', 'Washer/Dryer']}
           >
           </DropDownButton>
         </Sdiv>
